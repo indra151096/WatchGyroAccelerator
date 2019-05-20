@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchOSGyroAccelerator" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="TitleLabel" id="e4m-B7-gZy"/>
+                        <label alignment="left" text="Gravity" id="Mgh-0G-Ull"/>
+                        <label alignment="left" text="0" id="nJL-Je-JSR"/>
+                        <label alignment="left" text="Acceleration" id="QD7-fX-vtf"/>
+                        <label alignment="left" text="0" id="akx-1C-Ygh"/>
+                        <label alignment="left" text="Rotation" id="uuL-0C-QsR"/>
+                        <label alignment="left" text="0" id="bXv-dN-zub"/>
+                        <label alignment="left" text="Attitude" id="P7d-T0-A5T"/>
+                        <label alignment="left" text="0" id="cqA-ac-51U"/>
+                    </items>
+                    <menu key="menu" id="aPb-Du-mff">
+                        <items>
+                            <menuItem title="Start Workout" icon="accept" id="ETM-Eq-TvY" userLabel="Start Workout">
+                                <connections>
+                                    <action selector="startWorkout" destination="AgC-eL-Hgc" id="Apm-4O-qgR"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop Workout" icon="decline" id="PrM-9P-YIe" userLabel="Stop Workout">
+                                <connections>
+                                    <action selector="stopWorkout" destination="AgC-eL-Hgc" id="fkm-21-jJa"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="AccelerationLabel" destination="akx-1C-Ygh" id="nNC-nj-ik6"/>
+                        <outlet property="attitudeLabel" destination="cqA-ac-51U" id="Eow-Jc-4Jo"/>
+                        <outlet property="gravityLabel" destination="nJL-Je-JSR" id="PRi-1K-rUk"/>
+                        <outlet property="rotationLabel" destination="bXv-dN-zub" id="HL6-Rh-Pz4"/>
+                        <outlet property="titleLabel" destination="e4m-B7-gZy" id="Mc6-Ql-sKp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="99" y="268"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchOSGyroAccelerator" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="WatchOSGyroAccelerator" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+</document>

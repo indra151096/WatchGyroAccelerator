@@ -12,7 +12,67 @@
 		8E61409E228D61400040436C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E61409C228D61400040436C /* Main.storyboard */; };
 		8E6140A0228D61410040436C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E61409F228D61410040436C /* Assets.xcassets */; };
 		8E6140A3228D61410040436C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6140A1228D61410040436C /* LaunchScreen.storyboard */; };
+		8E6140B0228D62CA0040436C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6140AE228D62CA0040436C /* Interface.storyboard */; };
+		8E6140B2228D62CB0040436C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6140B1228D62CB0040436C /* Assets.xcassets */; };
+		8E6140B9228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8E6140B8228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8E6140BE228D62CB0040436C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140BD228D62CB0040436C /* InterfaceController.swift */; };
+		8E6140C0228D62CB0040436C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140BF228D62CB0040436C /* ExtensionDelegate.swift */; };
+		8E6140C2228D62CB0040436C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140C1228D62CB0040436C /* NotificationController.swift */; };
+		8E6140C4228D62CB0040436C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6140C3228D62CB0040436C /* Assets.xcassets */; };
+		8E6140C9228D62CB0040436C /* WatchOSGyroAccelerator.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8E6140AC228D62CA0040436C /* WatchOSGyroAccelerator.app */; };
+		8E6140D5228D683D0040436C /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140D4228D683D0040436C /* RunningBuffer.swift */; };
+		8E6140D7228D68590040436C /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140D6228D68590040436C /* MotionManager.swift */; };
+		8E6140D9228D72CC0040436C /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6140D8228D72CC0040436C /* WorkoutManager.swift */; };
+		8EA37339229143A80092A25F /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA37338229143A80092A25F /* SessionHandler.swift */; };
+		8EA3733B2291990C0092A25F /* WatchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3733A2291990C0092A25F /* WatchLog.swift */; };
+		8EA3733D2291A0CD0092A25F /* WatchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3733C2291A0CD0092A25F /* WatchLog.swift */; };
+		8EA3733F2291B4220092A25F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3733E2291B4220092A25F /* AVFoundation.framework */; };
+		8EA373482291B65C0092A25F /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA373472291B65C0092A25F /* music.mp3 */; };
+		8EE97CC1228D82E200A3F921 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE97CC0228D82E200A3F921 /* HealthKit.framework */; };
+		8EE97CC4228D831D00A3F921 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE97CC3228D831D00A3F921 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E6140BA228D62CB0040436C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E61408D228D61400040436C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E6140B7228D62CB0040436C;
+			remoteInfo = "WatchOSGyroAccelerator Extension";
+		};
+		8E6140C7228D62CB0040436C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E61408D228D61400040436C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E6140AB228D62CA0040436C;
+			remoteInfo = WatchOSGyroAccelerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8E6140CD228D62CB0040436C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8E6140B9228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6140D1228D62CB0040436C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				8E6140C9228D62CB0040436C /* WatchOSGyroAccelerator.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8E614095228D61400040436C /* WatchGyroAccelerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchGyroAccelerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +82,29 @@
 		8E61409F228D61410040436C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E6140A2228D61410040436C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E6140A4228D61410040436C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6140AC228D62CA0040436C /* WatchOSGyroAccelerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchOSGyroAccelerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6140AF228D62CA0040436C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		8E6140B1228D62CB0040436C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E6140B3228D62CB0040436C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6140B8228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchOSGyroAccelerator Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6140BD228D62CB0040436C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		8E6140BF228D62CB0040436C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		8E6140C1228D62CB0040436C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8E6140C3228D62CB0040436C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E6140C5228D62CB0040436C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6140C6228D62CB0040436C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		8E6140D4228D683D0040436C /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
+		8E6140D6228D68590040436C /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		8E6140D8228D72CC0040436C /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		8EA37338229143A80092A25F /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
+		8EA3733A2291990C0092A25F /* WatchLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLog.swift; sourceTree = "<group>"; };
+		8EA3733C2291A0CD0092A25F /* WatchLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLog.swift; sourceTree = "<group>"; };
+		8EA3733E2291B4220092A25F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8EA373472291B65C0092A25F /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		8EE97CBE228D82E200A3F921 /* WatchGyroAccelerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchGyroAccelerator.entitlements; sourceTree = "<group>"; };
+		8EE97CC0228D82E200A3F921 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		8EE97CC2228D831D00A3F921 /* WatchOSGyroAccelerator Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchOSGyroAccelerator Extension.entitlements"; sourceTree = "<group>"; };
+		8EE97CC3228D831D00A3F921 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +112,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA3733F2291B4220092A25F /* AVFoundation.framework in Frameworks */,
+				8EE97CC1228D82E200A3F921 /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6140B5228D62CB0040436C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EE97CC4228D831D00A3F921 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				8E614097228D61400040436C /* WatchGyroAccelerator */,
+				8E6140AD228D62CA0040436C /* WatchOSGyroAccelerator */,
+				8E6140BC228D62CB0040436C /* WatchOSGyroAccelerator Extension */,
 				8E614096228D61400040436C /* Products */,
+				8EE97CBF228D82E200A3F921 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				8E614095228D61400040436C /* WatchGyroAccelerator.app */,
+				8E6140AC228D62CA0040436C /* WatchOSGyroAccelerator.app */,
+				8E6140B8228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +152,56 @@
 		8E614097228D61400040436C /* WatchGyroAccelerator */ = {
 			isa = PBXGroup;
 			children = (
+				8EA373472291B65C0092A25F /* music.mp3 */,
+				8EE97CBE228D82E200A3F921 /* WatchGyroAccelerator.entitlements */,
 				8E614098228D61400040436C /* AppDelegate.swift */,
 				8E61409A228D61400040436C /* ViewController.swift */,
 				8E61409C228D61400040436C /* Main.storyboard */,
 				8E61409F228D61410040436C /* Assets.xcassets */,
 				8E6140A1228D61410040436C /* LaunchScreen.storyboard */,
 				8E6140A4228D61410040436C /* Info.plist */,
+				8EA37338229143A80092A25F /* SessionHandler.swift */,
+				8EA3733C2291A0CD0092A25F /* WatchLog.swift */,
 			);
 			path = WatchGyroAccelerator;
+			sourceTree = "<group>";
+		};
+		8E6140AD228D62CA0040436C /* WatchOSGyroAccelerator */ = {
+			isa = PBXGroup;
+			children = (
+				8E6140AE228D62CA0040436C /* Interface.storyboard */,
+				8E6140B1228D62CB0040436C /* Assets.xcassets */,
+				8E6140B3228D62CB0040436C /* Info.plist */,
+			);
+			path = WatchOSGyroAccelerator;
+			sourceTree = "<group>";
+		};
+		8E6140BC228D62CB0040436C /* WatchOSGyroAccelerator Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8EE97CC2228D831D00A3F921 /* WatchOSGyroAccelerator Extension.entitlements */,
+				8E6140BD228D62CB0040436C /* InterfaceController.swift */,
+				8E6140BF228D62CB0040436C /* ExtensionDelegate.swift */,
+				8E6140C1228D62CB0040436C /* NotificationController.swift */,
+				8E6140C3228D62CB0040436C /* Assets.xcassets */,
+				8E6140C5228D62CB0040436C /* Info.plist */,
+				8E6140C6228D62CB0040436C /* PushNotificationPayload.apns */,
+				8E6140D4228D683D0040436C /* RunningBuffer.swift */,
+				8E6140D6228D68590040436C /* MotionManager.swift */,
+				8E6140D8228D72CC0040436C /* WorkoutManager.swift */,
+				8EA3733A2291990C0092A25F /* WatchLog.swift */,
+			);
+			path = "WatchOSGyroAccelerator Extension";
+			sourceTree = "<group>";
+		};
+		8EE97CBF228D82E200A3F921 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EA3733E2291B4220092A25F /* AVFoundation.framework */,
+				8EE97CC3228D831D00A3F921 /* HealthKit.framework */,
+				8EE97CC0228D82E200A3F921 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +214,51 @@
 				8E614091228D61400040436C /* Sources */,
 				8E614092228D61400040436C /* Frameworks */,
 				8E614093228D61400040436C /* Resources */,
+				8E6140D1228D62CB0040436C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8E6140C8228D62CB0040436C /* PBXTargetDependency */,
 			);
 			name = WatchGyroAccelerator;
 			productName = WatchGyroAccelerator;
 			productReference = 8E614095228D61400040436C /* WatchGyroAccelerator.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8E6140AB228D62CA0040436C /* WatchOSGyroAccelerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E6140CE228D62CB0040436C /* Build configuration list for PBXNativeTarget "WatchOSGyroAccelerator" */;
+			buildPhases = (
+				8E6140AA228D62CA0040436C /* Resources */,
+				8E6140CD228D62CB0040436C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E6140BB228D62CB0040436C /* PBXTargetDependency */,
+			);
+			name = WatchOSGyroAccelerator;
+			productName = WatchOSGyroAccelerator;
+			productReference = 8E6140AC228D62CA0040436C /* WatchOSGyroAccelerator.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		8E6140B7228D62CB0040436C /* WatchOSGyroAccelerator Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E6140CA228D62CB0040436C /* Build configuration list for PBXNativeTarget "WatchOSGyroAccelerator Extension" */;
+			buildPhases = (
+				8E6140B4228D62CB0040436C /* Sources */,
+				8E6140B5228D62CB0040436C /* Frameworks */,
+				8E6140B6228D62CB0040436C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchOSGyroAccelerator Extension";
+			productName = "WatchOSGyroAccelerator Extension";
+			productReference = 8E6140B8228D62CB0040436C /* WatchOSGyroAccelerator Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -96,6 +272,22 @@
 				TargetAttributes = {
 					8E614094228D61400040436C = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					8E6140AB228D62CA0040436C = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					8E6140B7228D62CB0040436C = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -113,6 +305,8 @@
 			projectRoot = "";
 			targets = (
 				8E614094228D61400040436C /* WatchGyroAccelerator */,
+				8E6140AB228D62CA0040436C /* WatchOSGyroAccelerator */,
+				8E6140B7228D62CB0040436C /* WatchOSGyroAccelerator Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -122,9 +316,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA373482291B65C0092A25F /* music.mp3 in Resources */,
 				8E6140A3228D61410040436C /* LaunchScreen.storyboard in Resources */,
 				8E6140A0228D61410040436C /* Assets.xcassets in Resources */,
 				8E61409E228D61400040436C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6140AA228D62CA0040436C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E6140B2228D62CB0040436C /* Assets.xcassets in Resources */,
+				8E6140B0228D62CA0040436C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6140B6228D62CB0040436C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E6140C4228D62CB0040436C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +348,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E61409B228D61400040436C /* ViewController.swift in Sources */,
+				8EA37339229143A80092A25F /* SessionHandler.swift in Sources */,
+				8EA3733D2291A0CD0092A25F /* WatchLog.swift in Sources */,
 				8E614099228D61400040436C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E6140B4228D62CB0040436C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EA3733B2291990C0092A25F /* WatchLog.swift in Sources */,
+				8E6140C2228D62CB0040436C /* NotificationController.swift in Sources */,
+				8E6140D7228D68590040436C /* MotionManager.swift in Sources */,
+				8E6140D5228D683D0040436C /* RunningBuffer.swift in Sources */,
+				8E6140C0228D62CB0040436C /* ExtensionDelegate.swift in Sources */,
+				8E6140BE228D62CB0040436C /* InterfaceController.swift in Sources */,
+				8E6140D9228D72CC0040436C /* WorkoutManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E6140BB228D62CB0040436C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E6140B7228D62CB0040436C /* WatchOSGyroAccelerator Extension */;
+			targetProxy = 8E6140BA228D62CB0040436C /* PBXContainerItemProxy */;
+		};
+		8E6140C8228D62CB0040436C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E6140AB228D62CA0040436C /* WatchOSGyroAccelerator */;
+			targetProxy = 8E6140C7228D62CB0040436C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8E61409C228D61400040436C /* Main.storyboard */ = {
@@ -157,6 +398,14 @@
 				8E6140A2228D61410040436C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8E6140AE228D62CA0040436C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E6140AF228D62CA0040436C /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -282,6 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchGyroAccelerator/WatchGyroAccelerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26R5URXZ3V;
 				INFOPLIST_FILE = WatchGyroAccelerator/Info.plist;
@@ -300,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchGyroAccelerator/WatchGyroAccelerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26R5URXZ3V;
 				INFOPLIST_FILE = WatchGyroAccelerator/Info.plist;
@@ -311,6 +562,90 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8E6140CB228D62CB0040436C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchOSGyroAccelerator Extension/WatchOSGyroAccelerator Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26R5URXZ3V;
+				INFOPLIST_FILE = "WatchOSGyroAccelerator Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indra.WatchGyroAccelerator.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		8E6140CC228D62CB0040436C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchOSGyroAccelerator Extension/WatchOSGyroAccelerator Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26R5URXZ3V;
+				INFOPLIST_FILE = "WatchOSGyroAccelerator Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indra.WatchGyroAccelerator.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		8E6140CF228D62CB0040436C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26R5URXZ3V;
+				IBSC_MODULE = WatchOSGyroAccelerator_Extension;
+				INFOPLIST_FILE = WatchOSGyroAccelerator/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indra.WatchGyroAccelerator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		8E6140D0228D62CB0040436C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26R5URXZ3V;
+				IBSC_MODULE = WatchOSGyroAccelerator_Extension;
+				INFOPLIST_FILE = WatchOSGyroAccelerator/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indra.WatchGyroAccelerator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
 			};
 			name = Release;
 		};
@@ -331,6 +666,24 @@
 			buildConfigurations = (
 				8E6140A8228D61410040436C /* Debug */,
 				8E6140A9228D61410040436C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E6140CA228D62CB0040436C /* Build configuration list for PBXNativeTarget "WatchOSGyroAccelerator Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E6140CB228D62CB0040436C /* Debug */,
+				8E6140CC228D62CB0040436C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E6140CE228D62CB0040436C /* Build configuration list for PBXNativeTarget "WatchOSGyroAccelerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E6140CF228D62CB0040436C /* Debug */,
+				8E6140D0228D62CB0040436C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
