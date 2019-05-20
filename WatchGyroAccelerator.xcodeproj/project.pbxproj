@@ -27,7 +27,10 @@
 		8EA3733B2291990C0092A25F /* WatchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3733A2291990C0092A25F /* WatchLog.swift */; };
 		8EA3733D2291A0CD0092A25F /* WatchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3733C2291A0CD0092A25F /* WatchLog.swift */; };
 		8EA3733F2291B4220092A25F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3733E2291B4220092A25F /* AVFoundation.framework */; };
-		8EA373482291B65C0092A25F /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA373472291B65C0092A25F /* music.mp3 */; };
+		8EA3734C22924C220092A25F /* beat_punch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3734B22924C210092A25F /* beat_punch.mp3 */; };
+		8EA3734F22924FF20092A25F /* clap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3734D22924FF20092A25F /* clap.wav */; };
+		8EA3735022924FF20092A25F /* kick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3734E22924FF20092A25F /* kick.wav */; };
+		8EA3735422925D680092A25F /* bensound-hey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3735322925D680092A25F /* bensound-hey.mp3 */; };
 		8EE97CC1228D82E200A3F921 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE97CC0228D82E200A3F921 /* HealthKit.framework */; };
 		8EE97CC4228D831D00A3F921 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE97CC3228D831D00A3F921 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
@@ -100,7 +103,10 @@
 		8EA3733A2291990C0092A25F /* WatchLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLog.swift; sourceTree = "<group>"; };
 		8EA3733C2291A0CD0092A25F /* WatchLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLog.swift; sourceTree = "<group>"; };
 		8EA3733E2291B4220092A25F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		8EA373472291B65C0092A25F /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		8EA3734B22924C210092A25F /* beat_punch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beat_punch.mp3; sourceTree = "<group>"; };
+		8EA3734D22924FF20092A25F /* clap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap.wav; sourceTree = "<group>"; };
+		8EA3734E22924FF20092A25F /* kick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kick.wav; sourceTree = "<group>"; };
+		8EA3735322925D680092A25F /* bensound-hey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-hey.mp3"; sourceTree = "<group>"; };
 		8EE97CBE228D82E200A3F921 /* WatchGyroAccelerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchGyroAccelerator.entitlements; sourceTree = "<group>"; };
 		8EE97CC0228D82E200A3F921 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		8EE97CC2228D831D00A3F921 /* WatchOSGyroAccelerator Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchOSGyroAccelerator Extension.entitlements"; sourceTree = "<group>"; };
@@ -152,7 +158,10 @@
 		8E614097228D61400040436C /* WatchGyroAccelerator */ = {
 			isa = PBXGroup;
 			children = (
-				8EA373472291B65C0092A25F /* music.mp3 */,
+				8EA3735322925D680092A25F /* bensound-hey.mp3 */,
+				8EA3734D22924FF20092A25F /* clap.wav */,
+				8EA3734E22924FF20092A25F /* kick.wav */,
+				8EA3734B22924C210092A25F /* beat_punch.mp3 */,
 				8EE97CBE228D82E200A3F921 /* WatchGyroAccelerator.entitlements */,
 				8E614098228D61400040436C /* AppDelegate.swift */,
 				8E61409A228D61400040436C /* ViewController.swift */,
@@ -316,8 +325,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EA373482291B65C0092A25F /* music.mp3 in Resources */,
+				8EA3734F22924FF20092A25F /* clap.wav in Resources */,
+				8EA3735422925D680092A25F /* bensound-hey.mp3 in Resources */,
+				8EA3735022924FF20092A25F /* kick.wav in Resources */,
 				8E6140A3228D61410040436C /* LaunchScreen.storyboard in Resources */,
+				8EA3734C22924C220092A25F /* beat_punch.mp3 in Resources */,
 				8E6140A0228D61410040436C /* Assets.xcassets in Resources */,
 				8E61409E228D61400040436C /* Main.storyboard in Resources */,
 			);

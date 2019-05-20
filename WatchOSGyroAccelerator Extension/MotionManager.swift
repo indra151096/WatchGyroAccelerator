@@ -29,8 +29,8 @@ class MotionManager {
     let resetThreshold = 5.5 * 0.05 // to avoid double counting on the return swing
     
     //let app use 50hz data and buffer going to hold data
-    let sampleInterval = 1.0 / 50
-    let rateAlongGravityBuffer = RunningBuffer(size: 50)
+    let sampleInterval = 1.0 / 30
+    let rateAlongGravityBuffer = RunningBuffer(size: 30)
     
     weak var delegate: MotionManagerDelegate?
     
@@ -102,9 +102,10 @@ class MotionManager {
         // 2. Since this is timeseries data, we want to include the
         //    time we log the measurements (in ms since it's
         //    recording every .02s)
-        //let timestamp = Date().timeIntervalSince1970
-
-        InterfaceController.watchData.accX.append(deviceMotion.userAcceleration.x)
+        let timestamp = Date().timeIntervalSince1970
+            //take avg of acceleration
+            //because sometimes good pattern only in x or y
+        InterfaceController.watchData.accX.append((deviceMotion.userAcceleration.x + deviceMotion.userAcceleration.y + deviceMotion.userAcceleration.z) / 3.0)
         InterfaceController.watchData.yaw.append(deviceMotion.attitude.yaw)
         
         //append(WatchLog(accX: , yaw: ))
