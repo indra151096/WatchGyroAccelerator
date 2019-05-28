@@ -14,17 +14,10 @@ import HealthKit
  These updates can be used to populate the user interface.
  */
 protocol WorkoutManagerDelegate: class {
-    func didUpdateForehandSwingCount(_ manager: WorkoutManager, forehandCount: Int)
-    func didUpdateBackhandSwingCount(_ manager: WorkoutManager, backhandCount: Int)
-    
     func didUpdateMotion(_ manager: WorkoutManager, gravityStr: String, rotationStr: String, accelerationStr: String, attitudeStr: String)
 }
 
 class WorkoutManager: MotionManagerDelegate {
-    func didUpdateMotion(_ manager: MotionManager, gravityStr: String, rotationStr: String, accelerationStr: String, attitudeStr: String) {
-        delegate?.didUpdateMotion(self,gravityStr:gravityStr, rotationStr: rotationStr, accelerationStr: accelerationStr, attitudeStr: attitudeStr)
-    }
-    
     
     let motionManager = MotionManager()
     let healthStore = HKHealthStore()
@@ -36,7 +29,8 @@ class WorkoutManager: MotionManagerDelegate {
         motionManager.delegate = self
     }
     
-    func startWorkout() {
+    func startDetection() {
+        print("RECORD START")
         //if already start workout, then do nothing
         if (session != nil) {
             return
@@ -56,12 +50,13 @@ class WorkoutManager: MotionManagerDelegate {
         //reset
         InterfaceController.watchData.accX.removeAll()
         InterfaceController.watchData.yaw.removeAll()
+        InterfaceController.watchData.pitch.removeAll()
         // Start the workout session and device motion updates.
         session?.startActivity(with: .init())
         motionManager.startUpdates()
     }
     
-    func stopWorkout() {
+    func stopDetection() {
         // If we have already stopped the workout, then do nothing.
         if (session == nil) {
             return
@@ -74,14 +69,8 @@ class WorkoutManager: MotionManagerDelegate {
         // Clear the workout session.
         session = nil
     }
-    
-    func didUpdateForehandSwingCount(_ manager: MotionManager, forehandCount: Int) {
-        delegate?.didUpdateForehandSwingCount(self, forehandCount: forehandCount)
+
+    func didUpdateMotion(_ manager: MotionManager, gravityStr: String, rotationStr: String, accelerationStr: String, attitudeStr: String) {
+        delegate?.didUpdateMotion(self,gravityStr:gravityStr, rotationStr: rotationStr, accelerationStr: accelerationStr, attitudeStr: attitudeStr)
     }
-    
-    func didUpdateBackhandSwingCount(_ manager: MotionManager, backhandCount: Int) {
-        delegate?.didUpdateBackhandSwingCount(self, backhandCount: backhandCount)
-    }
-    
-    
 }

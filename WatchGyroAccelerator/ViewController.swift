@@ -11,7 +11,6 @@ import AVFoundation
 
 class ViewController: UIViewController, SessionHandlerDelegate {
     
-    @IBOutlet weak var label: UILabel!
     var audioPlayer = AVAudioPlayer()
     var beatPlayer = AVAudioPlayer()
     var isPlaying = false
@@ -19,71 +18,98 @@ class ViewController: UIViewController, SessionHandlerDelegate {
     @IBOutlet weak var volumeView: UIView!
     @IBOutlet weak var volumeHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var beatView: UIView!
+    @IBOutlet weak var countDownLabel: UILabel!
     
     func receiveRequest(_ detection: String) {
         print("DETECT: \(detection)")
-        updateLabel(labelStr: "3.2.1")
+        countDown(range: 3)
+        DispatchQueue.global().async {
+            print("GLOBAL")
+            sleep(3)
+            self.countDown(range: 5)
+        }
+    }
+    
+    func countDown(range: Int) {
+        DispatchQueue.global().async {
+            for i in 1...range {
+                DispatchQueue.main.async {
+                    self.countDownLabel.transform = .init(scaleX: 1, y: 1)
+                    self.countDownLabel.text = "\(range+1-i)"
+                    self.countDownLabel.alpha = 1
+                    UIView.animate(withDuration: 1, delay: 0, animations: {
+                        self.countDownLabel.transform = .init(scaleX: 5, y: 5)
+                        self.countDownLabel.alpha = 0
+                        
+                        print("CT: " + self.countDownLabel.text!)
+                    }, completion: nil)
+                }
+                sleep(1)
+            }
+        }
     }
     
     func receiveRequestData(_ data: WatchLog) {
         //this all section run in another thread
         //will not block the UI
-        print("ACC min: \(data.accX.min()) max: \(data.accX.max())")
-        print("YAW min: \(data.yaw.min()) max: \(data.yaw.max())")
         
         self.playAudio()
-        /*var accXmin = data.accX.min()!
-        var accXmax = data.accX.max()!
-
-        for item in data.accX {
-            usleep(50000)
-            let volume = Float ((item + abs(accXmin)) / (accXmax + abs(accXmin)))
-            self.audioPlayer.setVolume(volume, fadeDuration: 0)
-            print("Volume: \(volume)")
-        }*/
         
         let yawMin = data.yaw.min()!
         let yawMax = data.yaw.max()!
         
-        let accMin = data.accX.min()!
-        let accMax = data.accX.max()!
+        let pitchMin = data.pitch.min()!
+        let pitchMax = data.pitch.max()!
         
-        let beatBound = (accMax + accMin) / 2.0
+//        let accMin = data.accX.min()!
+//        let accMax = data.accX.max()!
+        
+        //tune
+        let beatBound = 0.4//(accMax + accMin) / 2.0
         print("BOUND: \(beatBound)")
         
         let queueMusic = DispatchQueue(label: "queueMusic")
         let queueBeat = DispatchQueue(label: "queueBeat")
         self.beatPlayer.setVolume(1, fadeDuration: 0)
 
+        print("MIN: \(yawMin)")
+        var volume: Float = 0.0
         for i in 0...data.yaw.count-1 {
             queueMusic.sync {
                 //music
-                    let volume = Float ((data.yaw[i] + abs(yawMin)) / (yawMax + abs(yawMin)))
+                //let volume = Float ((data.yaw[i] + abs(yawMin)) / (yawMax + abs(yawMin)))
+                /*if yawMin < 0 {
+                    volume = Float ((data.yaw[i] + abs(yawMin)) / (yawMax + abs(yawMin)))
+                }
+                else {
+                    volume = Float ((data.yaw[i] - yawMin) / (yawMax - yawMin))
+                }*/
                 
+                if yawMin < 0 {
+                    volume = Float ((data.pitch[i] + abs(pitchMin)) / (pitchMax + abs(pitchMin)))
+                }
+                else {
+                    volume = Float ((data.pitch[i] - pitchMin) / (pitchMax - pitchMin))
+                }
                 
                 DispatchQueue.main.async {
-                    //max constaint 896
                     UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
-                        
+                        //update UI when volume change
                         let width = self.constraintHeight-(CGFloat(volume) * self.constraintHeight)
-                        print("WIDTH: \(width)")
                         self.volumeHeightConstraint.constant = width
                         self.view.layoutIfNeeded()
-                        self.label.text = String(format: "%.0f", 100.0 - (width/self.constraintHeight*100.0))
                     }, completion: nil)
                 }
-                    usleep(100000)
-                    self.audioPlayer.setVolume(volume, fadeDuration: 0)
-                    print("Volume: \(volume)")
-            
+                //delay a bit
+                usleep(100000)
+                self.audioPlayer.setVolume(volume, fadeDuration: 0)
             }
             
             
             queueBeat.async {
                 //switch beat on and off
                 if data.accX[i] < beatBound {
-                    //self.beatPlayer.setVolume(0, fadeDuration: 0)
-                    print("Beat: 0 from data \(data.accX[i])")
+                    //print("Beat: 0 from data \(data.accX[i])")
                 }
                 else {
                     if self.isPlaying {
@@ -105,12 +131,6 @@ class ViewController: UIViewController, SessionHandlerDelegate {
         }
         print("STOP")
         self.stopAudio()
-    }
-    
-    func updateLabel(labelStr: String) {
-        DispatchQueue.main.async { // Correct
-            self.label.text = labelStr
-        }
     }
     
     func setupAudio(fileName: String, isMusic: Bool) {
@@ -140,16 +160,13 @@ class ViewController: UIViewController, SessionHandlerDelegate {
     }
     
     func playAudio() {
-        print("try play")
         if isPlaying {
             audioPlayer.pause()
             isPlaying = false
-            print("not")
         }
         else {
             audioPlayer.play()
             isPlaying = true
-            print("play")
         }
     }
     
@@ -165,13 +182,8 @@ class ViewController: UIViewController, SessionHandlerDelegate {
         super.viewDidLoad()
         SessionHandler.shared.delegate = self
         
-        // Do any additional setup after loading the view.
-        label.text = "count"
-        
         setupAudio(fileName: "bensound-hey", isMusic: true)
         setupAudio(fileName: "kick", isMusic: false)
     }
-
-
 }
 

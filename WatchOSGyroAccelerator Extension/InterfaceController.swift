@@ -17,20 +17,17 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     //static var watchLog: String = "";
     static var watchData = WatchLog()
     var active = false
-    var forehandCount = 0
-    var backhandCount = 0
+    var detectionStatus = false
     
     var gravityStr: String!
     var accelerationStr: String!
     var rotationStr: String!
     var attitudeStr: String!
+    
+    var isDataSend = true
 
     @IBOutlet weak var titleLabel: WKInterfaceLabel!
-    
-    @IBOutlet weak var gravityLabel: WKInterfaceLabel!
-    @IBOutlet weak var AccelerationLabel: WKInterfaceLabel!
-    @IBOutlet weak var rotationLabel: WKInterfaceLabel!
-    @IBOutlet weak var attitudeLabel: WKInterfaceLabel!
+    @IBOutlet weak var sendButton: WKInterfaceButton!
     
     //connection
     var session = WCSession.default
@@ -38,42 +35,68 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     override init() {
         super.init()
         workoutManager.delegate = self
+        self.sendButton.setHidden(true)
     }
     
-    @IBAction func startWorkout() {
+    @IBAction func startDetection() {
+        print("DETECT START")
+        playHaptic(type: .start)
+        
+        self.sendButton.setHidden(true)
+        detectionStatus = true
         if self.session.isReachable {
             self.session.sendMessage(["detection": "start"], replyHandler: { (response) in
-                self.titleLabel.setText("\(response)")
+                //self.titleLabel.setText("\(response)")
+                print("\(response)")
             }) { (error) in
-                self.titleLabel.setText("Error: \(error)")
+                //self.titleLabel.setText("Error: \(error)")
+                print("\(error)")
             }
         }
         //delay 3 second
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.titleLabel.setText("Workout started")
-            self.workoutManager.startWorkout()
+            self.playHaptic(type: .start)
+            self.titleLabel.setText("Start")
+            self.workoutManager.startDetection()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+            self.playHaptic(type: .stop)
+            self.stopDetection()
+            self.titleLabel.setText("Stop")
+            self.sendButton.setHidden(false)
+            self.isDataSend = false
         }
     }
     
+    func stopDetection() {
+        print("DETECT STOP")
+        detectionStatus = false
+        self.workoutManager.stopDetection()
+    }
     
-    @IBAction func stopWorkout() {
-        titleLabel.setText("Workout stopped")
-        workoutManager.stopWorkout()
+    @IBAction func sendButtonClicked() {
+        print("DATA SEND \(isDataSend)")
+        playHaptic(type: .success)
+        
+        if !isDataSend {
+            sendGyroAccData()
+            isDataSend = true
+        }
+    }
+    
+    func sendGyroAccData() {
+        titleLabel.setText("STOP")
         
         if self.session.isReachable {
-           let jsonData = try! JSONEncoder().encode(InterfaceController.watchData)
+            let jsonData = try! JSONEncoder().encode(InterfaceController.watchData)
             self.session.sendMessageData(jsonData, replyHandler: { (data) in
                 
             }) { (error) in
                 self.titleLabel.setText("Error: \(error)")
             }
-            /*
-            self.session.sendMessage(["detection": "stop"], replyHandler: { (response) in
-                self.titleLabel.setText("\(response)")
-            }) { (error) in
-                self.titleLabel.setText("Error: \(error)")
-            }*/
         }
+        sendButton.setHidden(true)
     }
     
     func didUpdateMotion(_ manager: WorkoutManager, gravityStr: String, rotationStr: String, accelerationStr: String, attitudeStr: String) {
@@ -84,35 +107,25 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
         self.updateLabels()
     }
     
-    func didUpdateForehandSwingCount(_ manager: WorkoutManager, forehandCount: Int) {
-        /// Serialize the property access and UI updates on the main queue.
-        DispatchQueue.main.async {
-            self.forehandCount = forehandCount
-            self.updateLabels()
-        }
-    }
-    
-    func didUpdateBackhandSwingCount(_ manager: WorkoutManager, backhandCount: Int) {
-        /// Serialize the property access and UI updates on the main queue.
-        DispatchQueue.main.async {
-            self.backhandCount = backhandCount
-            self.updateLabels()
-        }
-    }
-    
     func updateLabels() {
         if active {
-            gravityLabel.setText(gravityStr)
-            AccelerationLabel.setText(accelerationStr)
-            rotationLabel.setText(rotationStr)
-            attitudeLabel.setText(attitudeStr)
-            
-            
-            //forehandCountLabel.setText("\(forehandCount)")
-            //backhandCountLabel.setText("\(backhandCount)")
+            if detectionStatus == true {
+                titleLabel.setText("Start")
+            }
+            else {
+                titleLabel.setText("Stop")
+            }
+//            gravityLabel.setText(gravityStr)
+//            AccelerationLabel.setText(accelerationStr)
+//            rotationLabel.setText(rotationStr)
+//            attitudeLabel.setText(attitudeStr)
         }
     }
     
+    func playHaptic(type: WKHapticType) {
+        WKInterfaceDevice.current().play(type)
+    }
+
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

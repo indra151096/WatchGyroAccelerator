@@ -11,4 +11,5 @@ import Foundation
 struct WatchLog: Codable{
     var accX = [Double]()
     var yaw = [Double]()
+    var pitch = [Double]()
 }

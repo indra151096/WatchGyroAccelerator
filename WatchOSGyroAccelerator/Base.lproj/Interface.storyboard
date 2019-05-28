@@ -15,34 +15,19 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchOSGyroAccelerator" customModuleProvider="target">
                     <items>
                         <label alignment="left" text="TitleLabel" id="e4m-B7-gZy"/>
-                        <label alignment="left" text="Gravity" id="Mgh-0G-Ull"/>
-                        <label alignment="left" text="0" id="nJL-Je-JSR"/>
-                        <label alignment="left" text="Acceleration" id="QD7-fX-vtf"/>
-                        <label alignment="left" text="0" id="akx-1C-Ygh"/>
-                        <label alignment="left" text="Rotation" id="uuL-0C-QsR"/>
-                        <label alignment="left" text="0" id="bXv-dN-zub"/>
-                        <label alignment="left" text="Attitude" id="P7d-T0-A5T"/>
-                        <label alignment="left" text="0" id="cqA-ac-51U"/>
+                        <button width="1" alignment="left" title="START" id="nFc-43-n9P">
+                            <connections>
+                                <action selector="startDetection" destination="AgC-eL-Hgc" id="myn-MY-ntu"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="SEND" id="wxB-RK-ONe">
+                            <connections>
+                                <action selector="sendButtonClicked" destination="AgC-eL-Hgc" id="aeH-qC-Jy2"/>
+                            </connections>
+                        </button>
                     </items>
-                    <menu key="menu" id="aPb-Du-mff">
-                        <items>
-                            <menuItem title="Start Workout" icon="accept" id="ETM-Eq-TvY" userLabel="Start Workout">
-                                <connections>
-                                    <action selector="startWorkout" destination="AgC-eL-Hgc" id="Apm-4O-qgR"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Stop Workout" icon="decline" id="PrM-9P-YIe" userLabel="Stop Workout">
-                                <connections>
-                                    <action selector="stopWorkout" destination="AgC-eL-Hgc" id="fkm-21-jJa"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                     <connections>
-                        <outlet property="AccelerationLabel" destination="akx-1C-Ygh" id="nNC-nj-ik6"/>
-                        <outlet property="attitudeLabel" destination="cqA-ac-51U" id="Eow-Jc-4Jo"/>
-                        <outlet property="gravityLabel" destination="nJL-Je-JSR" id="PRi-1K-rUk"/>
-                        <outlet property="rotationLabel" destination="bXv-dN-zub" id="HL6-Rh-Pz4"/>
+                        <outlet property="sendButton" destination="wxB-RK-ONe" id="WTz-Fp-T7V"/>
                         <outlet property="titleLabel" destination="e4m-B7-gZy" id="Mc6-Ql-sKp"/>
                     </connections>
                 </controller>
